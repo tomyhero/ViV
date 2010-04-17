@@ -1,6 +1,6 @@
-use  Plack::Session::State::Cookie;
-use Plack::Session::Store::Cache;
-use Cache::FastMmap;
+use Plack::Session::State::Cookie;
+use Plack::Session::Store::File;
+
 +{
     default => {
         'logger' => {
@@ -9,7 +9,7 @@ use Cache::FastMmap;
                 ],
                 'screen' => {
                     'stderr' => '1',
-                    'class' => 'Log::Dispatch::Screen',
+                    'class' => 'Log::Dispatch::Screen::Color',
                     'min_level' => 'debug'
                 }
         },
@@ -23,6 +23,7 @@ use Cache::FastMmap;
                     },          
                 },
                 'ViV::WAF::Plugin::Auth',
+                'Polocky::WAF::CatalystLike::Plugin::ShowDispatcher',
             ],
             'middlewares' => [
             {
@@ -35,7 +36,7 @@ use Cache::FastMmap;
                 'module' => 'Plack::Middleware::Session',
                 opts => {
                     state => Plack::Session::State::Cookie->new( session_key => 'viv_session' ),
-                    store => Plack::Session::Store::Cache->new( cache => Cache::FastMmap->new()),
+                    store => Plack::Session::Store::File->new( dir => '/tmp/viv_session' )
                 }
             },
             ]

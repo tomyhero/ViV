@@ -1,0 +1,13 @@
+[% INCLUDE header.inc %]
+
+<div>
+<a href="/member/add/">追加</a>
+</div>
+
+
+[% FOREACH member_obj IN member_objs %]
+[% member_obj.screen_name | html %]
+[% END %]
+
+
+[% INCLUDE footer.inc %]

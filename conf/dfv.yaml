@@ -3,6 +3,12 @@ rules :
     - Number 
 lang : ja
 setting :
+    regex_map :
+        '^on_' :
+            rule :
+                - Number#range :
+                    min : 0
+                    max : 1
     strict :
         password : 
             rule :
@@ -14,8 +20,15 @@ setting :
                 - String#length :
                     min : 1
                     max : 10
+        screen_name :
+            rule :
+                - String#length :
+                    min : 1
+                    max : 10
 labels :
     ja :
         password : パスワード
         member_name : メンバー名
+        on_admin : 管理権限あり
+        screen_name : 表示名
     
