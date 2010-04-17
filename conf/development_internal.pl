@@ -9,8 +9,25 @@ use Plack::Session::Store::File;
                 ],
                 'screen' => {
                     'stderr' => '1',
-                    'class' => 'Log::Dispatch::Screen::Color',
-                    'min_level' => 'debug'
+                    'class' => 'Log::Dispatch::Colorful',
+                    'min_level' => 'debug',
+                    color     => {
+                        info  => {
+                            text => 'red',
+                        },
+                        error   => {
+                            background => 'red',
+                        },
+                        alert   => {
+                            text       => 'red',
+                            background => 'white',
+                        },
+                        warning => {
+                            text       => 'red',
+                            background => 'white',
+                            bold       => 1,
+                        },
+                    },
                 }
         },
     },
