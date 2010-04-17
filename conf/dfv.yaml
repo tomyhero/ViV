@@ -1,0 +1,21 @@
+rules :
+    - String
+    - Number 
+lang : ja
+setting :
+    strict :
+        password : 
+            rule :
+                - String#length :
+                    min : 1
+                    max : 10
+        member_name :
+            rule :
+                - String#length :
+                    min : 1
+                    max : 10
+labels :
+    ja :
+        password : パスワード
+        member_name : メンバー名
+    

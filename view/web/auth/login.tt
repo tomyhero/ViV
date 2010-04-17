@@ -1,0 +1,8 @@
+[% INCLUDE header.inc %]
+[% INCLUDE fvl.inc %]
+<form method="post" action="/auth/login/">
+<input type="text" name="member_name">
+<input type="password" name="password">
+<input type="submit" value="login" />
+</form>
+[% INCLUDE footer.inc %]

@@ -1,0 +1,14 @@
+#!/usr/bin/perl -w
+BEGIN {
+    use FindBin;
+    use File::Spec;
+    my $HOME = $FindBin::Bin .'/../';
+    $ENV{POLOCKY_HOME} = $HOME;
+};
+
+use warnings;
+use strict;
+use FindBin::libs;
+use Polocky::Util::Initializer 'ViV::Script';
+use ViV::Script;
+ViV::Script->run();
