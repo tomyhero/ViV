@@ -5,9 +5,20 @@
 </div>
 
 
+<table>
+<tr>
+<th>ログイン名</th>
+<th>スクリーン名</th>
+<th>管理</th>
+</tr>
 [% FOREACH member_obj IN member_objs %]
-[% member_obj.screen_name | html %]
+<tr>
+<td>[% member_obj.member_name | html %]</td>
+<td>[% member_obj.screen_name | html %]</td>
+<td>[% member_obj.on_admin %]</td>
+</tr>
 [% END %]
+</table>
 
 
 [% INCLUDE footer.inc %]

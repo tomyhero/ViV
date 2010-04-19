@@ -1,0 +1,3 @@
+#!/bin/bash
+
+plackup --app ./etc/web.psgi --port 33333 --env hog

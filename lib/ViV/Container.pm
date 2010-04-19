@@ -9,7 +9,10 @@ register model => sub {
     my $model = ViV::Model->new();
     my $driver = Data::Model::Driver::DBI->new(
             dsn => 'dbi:mysql:dbname=viv',
-            username => 'root'
+            username => 'root',
+            'connect_options' => {
+                'mysql_enable_utf8' => '1'
+            }
             );
     $model->set_base_driver($driver);
 
