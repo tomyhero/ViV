@@ -1,6 +1,7 @@
 package ViV::Web::Controller::Member;
 use Polocky::Class;
 use ViV::Container 'con';
+use ViV::Constants qw(:common);
 
 BEGIN { extends 'Polocky::WAF::CatalystLike::Controller' };
 
@@ -23,7 +24,7 @@ sub do_add : Private {
     my $form = $c->form({
         required => [qw/member_name password screen_name on_admin/],
         defaults => {
-            on_admin => 0,
+            on_admin => TRUE ,
         }
     });
 
@@ -38,6 +39,5 @@ sub do_add : Private {
     $c->redirect('/member/');
 
 }
-
 
 __POLOCKY__;
