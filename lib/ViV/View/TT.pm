@@ -1,6 +1,6 @@
-package ViV::Web::View::TT;
+package ViV::View::TT;
 use Polocky::Class;
-extends 'Polocky::WAF::View::TT';
+extends 'Polocky::View::TT';
 use Template::Filters::LazyLoader;
 use ViV::Constants;
 
