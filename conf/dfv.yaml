@@ -1,6 +1,7 @@
 rules :
     - String
     - Number 
+    - FVL=+ViV::FVL::Rule
 lang : ja
 setting :
     regex_map :
@@ -20,6 +21,9 @@ setting :
                 - String#length :
                     min : 1
                     max : 10
+                - FVL#unique_id :
+                    table : member
+                    field : member_name
         screen_name :
             rule :
                 - String#length :

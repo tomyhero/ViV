@@ -34,6 +34,7 @@ sub do_add : Private {
             $form->custom_invalid( 'password_confirm' , 'password confirm fail');
         }
     }
+
     return if $form->has_error;
     con('model')->set( member => $v );
     $c->redirect('/member/');

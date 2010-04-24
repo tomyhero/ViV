@@ -6,6 +6,7 @@ use Data::Model::Schema sugar => 'viv';
 
 install_model member => schema {
     key 'member_id';
+    unique 'member_name';
     column 'member_id'
       => 'int' => {
           required => 1,
