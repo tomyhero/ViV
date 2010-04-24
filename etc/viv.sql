@@ -10,6 +10,7 @@ create table member (
 );
 create table project (
     project_id int(10) unsigned NOT NULL auto_increment,
+    owner_id int(10) unsigned NOT NULL ,
     project_name varchar(255) NOT NULL default '',
     created_at datetime NOT NULL default '0000-00-00 00:00:00',
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,

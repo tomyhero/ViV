@@ -18,5 +18,4 @@ sub fix_config {
     $config->{POST_CHOMP} = 1;
 }
 
-
 __POLOCKY__;

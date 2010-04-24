@@ -53,8 +53,15 @@ install_model project => schema {
           unsigned => 1,
           auto_increment => 1,
       };
-    utf8_column 'project_name'
+
+    column 'project_name'
       => 'varchar' => {
+          required => 1,
+          size     => 255,
+      };
+
+    column 'owner_id'
+      => 'int' => {
           required => 1,
           size     => 255,
       };
@@ -67,6 +74,12 @@ install_model project => schema {
       => 'timestamp' => {
           required => 1,
       };
+
+    add_method 'owner_obj'
+        => sub {
+            my $row = shift;
+            $row->get_model->lookup( member => $row->owner_id );
+    };
 };
 
 1;

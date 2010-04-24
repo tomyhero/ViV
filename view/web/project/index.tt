@@ -1,0 +1,22 @@
+[% INCLUDE header.inc %]
+
+<div>
+<a href="/project/add/">追加</a>
+</div>
+
+
+<table>
+<tr>
+<th>プロジェクト名</th>
+<th>オーナー</th>
+</tr>
+[% FOREACH project_obj IN project_objs %]
+<tr>
+<td>[% project_obj.project_name | html %]</td>
+<td>[% project_obj.owner_obj.screen_name | html %]</td>
+</tr>
+[% END %]
+</table>
+
+
+[% INCLUDE footer.inc %]

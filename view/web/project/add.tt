@@ -1,0 +1,19 @@
+[% INCLUDE header.inc %]
+
+<h2>メンバー追加</h2>
+
+[% INCLUDE fvl.inc %]
+<form method="post" action="/project/add/">
+<table>
+    <tr>
+        <th>project_name</th>
+        <td><input type="text" name="project_name" /></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit" /></td>
+    </tr>
+</table>
+
+</form>
+
+[% INCLUDE footer.inc %]
