@@ -27,8 +27,8 @@ sub execute {
     my $row 
         = $model->set(
             member => {
-                member_name => 'admin',
-                screen_name => 'admin',
+                login_name => 'admin',
+                screen_name => '管理者',
                 on_admin => 1,
                 password => ViV::Utils::encript_password('helpme'),
             }

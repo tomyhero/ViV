@@ -22,7 +22,7 @@ sub do_add : Private {
     my ( $self, $c ) = @_;
 
     my $form = $c->form({
-        required => [qw/member_name password screen_name on_admin/],
+        required => [qw/login_name password screen_name on_admin/],
         defaults => {
             on_admin => TRUE ,
         }

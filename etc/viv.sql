@@ -1,6 +1,6 @@
 create table member (
     member_id int(10) unsigned NOT NULL auto_increment,
-    member_name varchar(255) NOT NULL,
+    login_name varchar(255) NOT NULL,
     password varchar(255) NOT NULL,
     screen_name varchar(255) NOT NULL,
     on_admin tinyint unsigned NOT NULL,

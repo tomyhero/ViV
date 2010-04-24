@@ -6,7 +6,7 @@ use Data::Model::Schema sugar => 'viv';
 
 install_model member => schema {
     key 'member_id';
-    unique 'member_name';
+    unique 'login_name';
     column 'member_id'
       => 'int' => {
           required => 1,
@@ -14,7 +14,7 @@ install_model member => schema {
           auto_increment => 1,
       };
 
-    column 'member_name'
+    column 'login_name'
       => 'varchar' => {
           required => 1,
           size     => 255,
@@ -24,7 +24,7 @@ install_model member => schema {
           required => 1,
           size     => 255,
       };
-    utf8_column 'screen_name'
+    column 'screen_name'
       => 'varchar' => {
           required => 1,
           size     => 255,

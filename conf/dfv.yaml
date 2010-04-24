@@ -16,14 +16,14 @@ setting :
                 - String#length :
                     min : 1
                     max : 10
-        member_name :
+        login_name :
             rule :
                 - String#length :
                     min : 1
                     max : 10
                 - FVL#unique_id :
                     table : member
-                    field : member_name
+                    field : login_name
         screen_name :
             rule :
                 - String#length :
@@ -32,7 +32,7 @@ setting :
 labels :
     ja :
         password : パスワード
-        member_name : メンバー名
+        login_name : ログイン名
         on_admin : 管理権限あり
         screen_name : 表示名
     

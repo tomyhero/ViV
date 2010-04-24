@@ -17,7 +17,7 @@ sub login : Local {
 sub do_login : Private {
     my ( $self , $c ) = @_;
     my $form = $c->form({
-        required => [qw/member_name password/],
+        required => [qw/login_name password/],
     });
     return if $form->has_error ;
     my $v = $form->valid;
@@ -25,7 +25,7 @@ sub do_login : Private {
     my $it = con('model')->get(
         member => {
             where => [
-                member_name => $v->{member_name},
+                login_name => $v->{login_name},
                 password => ViV::Utils::encript_password( $v->{password} )
             ],
         }

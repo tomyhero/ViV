@@ -13,7 +13,7 @@
 </tr>
 [% FOREACH member_obj IN member_objs %]
 <tr>
-<td>[% member_obj.member_name | html %]</td>
+<td>[% member_obj.login_name | html %]</td>
 <td>[% member_obj.screen_name | html %]</td>
 <td>[% member_obj.on_admin %]</td>
 </tr>
