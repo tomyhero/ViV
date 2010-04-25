@@ -38,3 +38,11 @@ q:before,q:after {
 #container {
     margin : 10px;
 }
+#fvl {
+    margin : 10px;
+    color : red;
+}
+#navi {
+     border: 1px solid #000000; 
+    background-color : skyblue;
+}
