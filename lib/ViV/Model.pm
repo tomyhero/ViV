@@ -60,7 +60,7 @@ install_model project => schema {
           size     => 255,
       };
 
-    column 'owner_id'
+    column 'created_by'
       => 'int' => {
           required => 1,
           size     => 255,
@@ -75,10 +75,10 @@ install_model project => schema {
           required => 1,
       };
 
-    add_method 'owner_obj'
+    add_method 'created_by_obj'
         => sub {
             my $row = shift;
-            $row->get_model->lookup( member => $row->owner_id );
+            $row->get_model->lookup( member => $row->created_by );
     };
 };
 

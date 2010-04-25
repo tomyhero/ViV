@@ -28,7 +28,7 @@ sub do_add : Private {
     my $v = $form->valid;
     return if $form->has_error;
 
-    my %data = ( %$v, owner_id => $c->member->member_id );
+    my %data = ( %$v, created_by => $c->member->member_id );
     con('model')->set( project => \%data );
     $c->redirect('/project/');
 

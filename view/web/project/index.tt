@@ -8,12 +8,12 @@
 <table>
 <tr>
 <th>プロジェクト名</th>
-<th>オーナー</th>
+<th>created_by</th>
 </tr>
 [% FOREACH project_obj IN project_objs %]
 <tr>
 <td>[% project_obj.project_name | html %]</td>
-<td>[% project_obj.owner_obj.screen_name | html %]</td>
+<td>[% project_obj.created_by_obj.screen_name | html %]</td>
 </tr>
 [% END %]
 </table>
