@@ -10,6 +10,15 @@ setting :
                 - Number#range :
                     min : 0
                     max : 1
+    update :
+        login_name :
+            rule :
+                - String#length :
+                    min : 1
+                    max : 10
+                - FVL#unique_id :
+                    table : member
+                    field : login_name
     strict :
         password : 
             rule :
@@ -21,9 +30,6 @@ setting :
                 - String#length :
                     min : 1
                     max : 10
-                - FVL#unique_id :
-                    table : member
-                    field : login_name
         screen_name :
             rule :
                 - String#length :

@@ -25,7 +25,10 @@ sub do_add : Private {
         required => [qw/login_name password screen_name on_admin/],
         defaults => {
             on_admin => TRUE ,
-        }
+        },
+        level => {
+            login_name => 'update',
+        },
     });
 
     my $v = $form->valid;

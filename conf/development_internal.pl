@@ -44,6 +44,13 @@ use Plack::Session::Store::File;
             ],
             'middlewares' => [
             {
+                'module' => 'Plack::Middleware::Static',
+                opts => {
+                   path => qr{^/(image|js|css)/}, 
+                   root => '__path_to(htdocs)__'
+                },
+            },
+            {
                 'module' => 'Plack::Middleware::StackTrace'
             },
             {
