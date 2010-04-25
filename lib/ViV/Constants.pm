@@ -1,6 +1,7 @@
 package ViV::Constants;
 
 use strict;
+use ViV;
 use base qw(Exporter);
 our @EXPORT_OK = qw(TRUE FALSE);
 our %EXPORT_TAGS = (
@@ -16,6 +17,7 @@ sub as_hashref {
     for my $key(@EXPORT_OK) {
     $data{$key} = $key->();
     }
+    $data{version} = $ViV::VERSION;
     return \%data;
 }
 
