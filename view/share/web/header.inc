@@ -5,7 +5,7 @@
 </head>
 <body>
 <div id="header">
-<h3>ViV</h3>
+<h3><a href="/">ViV</a></h3>
 </div>
 [% INCLUDE navi.inc %]
 <div id="container">
