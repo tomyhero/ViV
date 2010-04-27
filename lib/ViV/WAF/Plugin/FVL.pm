@@ -6,6 +6,7 @@ use Polocky::Role;
 use FormValidator::LazyWay;
 use FormValidator::LazyWay::Result;
 use YAML::Syck;
+use ViV::Container 'con';
 
 has '_dfv' => ( is => 'rw');
 
@@ -15,6 +16,11 @@ before 'SETUP' => sub  {
     my %args = ();
     my $config = $c->config->plugin('ViV::WAF::Plugin::FVL');
     $args{config} = YAML::Syck::LoadFile(  $config->{yaml_file} );
+    
+    # for now only japanese
+    my $ja = con('i18n')->get('label');
+    $args{config}{labels}{ja} = $ja;
+
     $args{result_class} = $config->{result_class} if  $config->{result_class};
 
     my $dfv = FormValidator::LazyWay->new( %args ) ;

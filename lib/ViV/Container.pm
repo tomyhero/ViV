@@ -4,6 +4,7 @@ use strict;
 use Object::Container '-base';
 use ViV::Model;
 use Data::Model::Driver::DBI;
+use ViV::I18N;
 
 register model => sub { 
     my $model = ViV::Model->new();
@@ -19,5 +20,10 @@ register model => sub {
     $model;
 };
 
-register 'hoge' => sub { 'hoge' };
+register i18n => sub {
+    my $i18n = ViV::I18N->new();
+    $i18n->load();
+    return $i18n;
+};
+
 1;

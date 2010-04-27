@@ -1,3 +1,4 @@
+use utf8;
 {
     label => {
         password => 'パスワード',
