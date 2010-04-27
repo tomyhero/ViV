@@ -1,15 +1,15 @@
 [% INCLUDE header.inc %]
 
 <div>
-<a href="/member/add/">追加</a>
+<a href="/member/add/">[% i18n.get('navi.add') %]</a>
 </div>
 
 
 <table>
 <tr>
-<th>ログイン名</th>
-<th>スクリーン名</th>
-<th>管理</th>
+<th>[% i18n.get('label.login_name') %]</th>
+<th>[% i18n.get('label.screen_name') %]</th>
+<th>[% i18n.get('label.on_admin') %]</th>
 </tr>
 [% FOREACH member_obj IN member_objs %]
 <tr>
