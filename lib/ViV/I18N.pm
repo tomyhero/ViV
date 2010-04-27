@@ -1,6 +1,7 @@
 package ViV::I18N;
 use Polocky::Class;
 use Polocky::Utils;
+use ViV::I18N::Handle;
 
 has data => ( is => 'rw');
 has default_lang => (
@@ -42,6 +43,12 @@ sub get {
         $data = $data->{$_};
     }
     return $data;
+}
+
+sub get_handle {
+    my $self = shift;
+    my $lang = shift || $self->default_lang;
+    return ViV::I18N::Handle->new( data => $self->data , lang => $lang );
 }
 
 __POLOCKY__;
