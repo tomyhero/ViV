@@ -3,7 +3,23 @@ use Polocky::Class;
 use ViV::Container 'con';
 use ViV::Constants qw(:common);
 
+
+# member is login user. member_obj is target member.
+
 BEGIN { extends 'Polocky::WAF::CatalystLike::Controller' };
+
+sub endpoint :Chained('/') :PathPart('member') :CaptureArgs(1) {
+    my ($self, $c, $member_id ) = @_;
+    my $member_obj = con('model')->lookup( member => $member_id ) or return $c->redirect('/');
+    $c->stash->{member_obj} = $member_obj;
+    1;
+}
+
+sub edit : Chained('endpoint')  {
+    my ($self, $c ) = @_;
+    my $member_obj = $c->stash->{member_obj};
+    $c->set_fillform( $member_obj->get_columns );
+}
 
 sub index : Path : Args(0) {
     my ( $self, $c ) = @_;

@@ -1,0 +1,28 @@
+[% INCLUDE header.inc %]
+
+<h2>メンバー編集</h2>
+
+[% INCLUDE fvl.inc %]
+<form method="post" action="/member/[% member_obj.id %]/edit/">
+
+<table>
+    <tr>
+        <th>[% i18n.get('label.login_name') %]</th>
+        <td>[% member_obj.login_name %]</td>
+    </tr>
+    <tr>
+        <th>[% i18n.get('label.screen_name') %]</th>
+        <td><input type="text" name="screen_name" /></td>
+    </tr>
+    <tr>
+        <th>[% i18n.get('label.on_admin') %]</th>
+        <td><input type="checkbox" name="on_admin" value="1" /> [% i18n.get('common.on') %]</td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit" value="[% i18n.get('form.edit') %]" /></td>
+    </tr>
+</table>
+
+</form>
+
+[% INCLUDE footer.inc %]

@@ -43,6 +43,11 @@ install_model member => schema {
       => 'timestamp' => {
           required => 1,
       };
+    add_method 'id'
+        => sub {
+            my $row = shift;
+            $row->member_id;
+        };
 };
 
 install_model project => schema {
@@ -79,7 +84,7 @@ install_model project => schema {
         => sub {
             my $row = shift;
             $row->get_model->lookup( member => $row->created_by );
-    };
+      };
 };
 
 1;

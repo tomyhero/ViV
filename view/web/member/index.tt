@@ -10,12 +10,16 @@
 <th>[% i18n.get('label.login_name') %]</th>
 <th>[% i18n.get('label.screen_name') %]</th>
 <th>[% i18n.get('label.on_admin') %]</th>
+<th>&nbsp;</th>
 </tr>
 [% FOREACH member_obj IN member_objs %]
 <tr>
 <td>[% member_obj.login_name | html %]</td>
 <td>[% member_obj.screen_name | html %]</td>
-<td>[% member_obj.on_admin %]</td>
+<td>
+[% IF member_obj.on_admin %][% i18n.get('common.on') %][% ELSE %][% i18n.get('common.off') %][% END %]
+</td>
+<td><a href="/member/[% member_obj.id %]/edit/">[% i18n.get('navi.edit') %]</a></td>
 </tr>
 [% END %]
 </table>

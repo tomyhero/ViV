@@ -41,6 +41,7 @@ use Plack::Session::Store::File;
                 },
                 'ViV::WAF::Plugin::Auth',
                 'Polocky::WAF::CatalystLike::Plugin::ShowDispatcher',
+                'ViV::WAF::Plugin::FillInForm',
             ],
             'middlewares' => [
             {
