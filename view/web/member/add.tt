@@ -11,11 +11,7 @@
     </tr>
     <tr>
         <th>[% i18n.get('label.password') %]</th>
-        <td><input type="password" name="password" /></td>
-    </tr>
-    <tr>
-        <th>[% i18n.get('label.password_confirm') %]</th>
-        <td><input type="password" name="password_confirm" /></td>
+        <td><input type="text" name="password" value="[% suggest_password %]" /></td>
     </tr>
     <tr>
         <th>[% i18n.get('label.screen_name') %]</th>

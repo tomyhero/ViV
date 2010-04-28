@@ -54,6 +54,9 @@ sub add : Local {
     if( $c->req->method eq 'POST' ){
         $c->detach('do_add');
     }
+    else {
+        $c->stash->{suggest_password} = ViV::Utils::generate_password;
+    }
 }
 
 sub do_add : Private {
@@ -70,11 +73,6 @@ sub do_add : Private {
     });
 
     my $v = $form->valid;
-    if( $v->{password} ) {
-        if ( $v->{password} ne $c->req->param('password_confirm') ){
-            $form->custom_invalid( 'password_confirm' , 'password confirm fail');
-        }
-    }
 
     return if $form->has_error;
     con('model')->set( member => $v );
