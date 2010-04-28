@@ -18,7 +18,29 @@ sub endpoint :Chained('/') :PathPart('member') :CaptureArgs(1) {
 sub edit : Chained('endpoint')  {
     my ($self, $c ) = @_;
     my $member_obj = $c->stash->{member_obj};
+    if( $c->req->method eq 'POST' ){
+        $c->detach('do_edit');
+    }
     $c->set_fillform( $member_obj->get_columns );
+}
+
+sub do_edit : Private {
+    my ($self, $c ) = @_;
+    my $member_obj = $c->stash->{member_obj};
+
+    my $form = $c->form({
+        required => [qw/screen_name on_admin/],
+        defaults => {
+            on_admin => FALSE ,
+        },
+    });
+    return if $form->has_error;
+
+    my $v = $form->valid;
+    $member_obj->screen_name( $v->{screen_name} );
+    $member_obj->on_admin( $v->{on_admin} );
+    $member_obj->update;
+    $c->redirect('/member/');
 }
 
 sub index : Path : Args(0) {
@@ -40,7 +62,7 @@ sub do_add : Private {
     my $form = $c->form({
         required => [qw/login_name password screen_name on_admin/],
         defaults => {
-            on_admin => TRUE ,
+            on_admin => FALSE ,
         },
         level => {
             login_name => 'update',
