@@ -13,6 +13,7 @@ setting :
     update :
         login_name :
             rule :
+                - String#ascii :
                 - String#length :
                     min : 1
                     max : 10
@@ -22,11 +23,13 @@ setting :
     strict :
         password : 
             rule :
+                - String#ascii :
                 - String#length :
                     min : 1
                     max : 10
         login_name :
             rule :
+                - String#ascii :
                 - String#length :
                     min : 1
                     max : 10
