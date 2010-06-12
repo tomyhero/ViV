@@ -2,6 +2,7 @@ package ViV::Model;
 use strict;
 use warnings;
 use base 'Data::Model';
+use ViV::Class::ProjectTree;
 use Data::Model::Schema sugar => 'viv';
 
 install_model member => schema {
@@ -105,7 +106,7 @@ install_model project => schema {
             }
             my $tree = {};
             &mktree(0,$a,$tree);
-            return ($tree, $b);
+            return ViV::Class::ProjectTree->new( tree => $tree , data => $b );
       };
 };
 

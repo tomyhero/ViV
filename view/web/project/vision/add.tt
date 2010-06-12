@@ -1,9 +1,15 @@
 [% INCLUDE header.inc %]
 
 <h2>ビジョン追加</h2>
+[% IF parent_vision_obj %]
+[% parent_vision_obj.vision_name | html %]
+[% END %]
 
 [% INCLUDE fvl.inc %]
 <form method="post" action="/project/[% project_obj.id %]/vision/add/">
+[% IF parent_vision_obj %]
+<input type="hidden" name="parent_vision_id" value="[% parent_vision_obj.vision_id %]" />
+[% END %]
 <table>
     <tr>
         <th>vision name</th>

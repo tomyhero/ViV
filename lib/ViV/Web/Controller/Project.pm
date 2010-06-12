@@ -19,6 +19,11 @@ sub index : Path : Args(0) {
     $c->stash->{project_objs} = \@project_objs;
 }
 
+sub view : Chained('endpoint') : PathPart('') {
+    my ( $self, $c ) = @_;
+    my $project_obj = $c->stash->{project_obj};
+}
+
 sub add : Local {
     my ( $self, $c ) = @_;
     if( $c->req->method eq 'POST' ){
@@ -42,14 +47,5 @@ sub do_add : Private {
 
 }
 
-sub view : Chained('endpoint')  {
-    my ( $self, $c ) = @_;
-    my $project_obj = $c->stash->{project_obj};
-    my $tree = $project_obj->tree;
-
-    use Data::Dumper;
-    warn Dumper $tree;
-
-}
 
 __POLOCKY__;

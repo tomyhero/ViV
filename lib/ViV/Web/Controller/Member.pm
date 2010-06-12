@@ -2,6 +2,7 @@ package ViV::Web::Controller::Member;
 use Polocky::Class;
 use ViV::Container 'con';
 use ViV::Constants qw(:common);
+use ViV::Utils;
 
 
 # member is login user. member_obj is target member.
@@ -75,6 +76,7 @@ sub do_add : Private {
     my $v = $form->valid;
 
     return if $form->has_error;
+    $v->{password} =  ViV::Utils::encript_password( $v->{password} );
     con('model')->set( member => $v );
     $c->redirect('/member/');
 
