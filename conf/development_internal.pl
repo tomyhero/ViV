@@ -1,7 +1,9 @@
+use warnings;
+use strict;
 use Plack::Session::State::Cookie;
 use Plack::Session::Store::File;
 
-+{
+return +{
     default => {
         'logger' => {
             'dispatchers' => [
@@ -68,4 +70,4 @@ use Plack::Session::Store::File;
         }
 
     }
-}
+};

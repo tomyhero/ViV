@@ -1,0 +1,42 @@
+[% INCLUDE header.inc %]
+
+id:[% project_obj.id %]
+<div id="treeDiv1"></div>
+
+<script>
+var tree = new YAHOO.widget.TreeView("treeDiv1", [ 
+    {
+        type: "text",
+        label: "Vision",
+        expanded: true,
+            children: [
+                    {
+                        type: "text",
+                        label: "Vision",
+                        expanded: true,
+                        children: [
+                            "Action",
+                            {
+                                type: "text",
+                                target: "_new",
+                                href: "/hoge/",
+                                title: "Add Action",
+                                label: "Add Action"
+                            },
+                            {
+                                type: "text",
+                                target: "_new",
+                                href: "/hoge/",
+                                title: "Add Vision",
+                                label: "Add Vision"
+                            }
+                        ]
+                    }
+            ]
+    }
+]);
+tree.render();
+ 
+</script>
+
+[% INCLUDE footer.inc %]

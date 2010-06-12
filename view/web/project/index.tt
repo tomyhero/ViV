@@ -14,6 +14,7 @@
 <tr>
 <td>[% project_obj.project_name | html %]</td>
 <td>[% project_obj.created_by_obj.screen_name | html %]</td>
+<td><a href="/project/[% project_obj.id %]/view/">View</a></td>
 </tr>
 [% END %]
 </table>

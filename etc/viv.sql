@@ -11,7 +11,7 @@ create table member (
 create table project (
     project_id int(10) unsigned NOT NULL auto_increment,
     project_name varchar(255) NOT NULL default '',
-    created_at int(10) unsigned NOT NULL ,
+    created_by int(10) unsigned NOT NULL ,
     created_at datetime NOT NULL default '0000-00-00 00:00:00',
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
     PRIMARY KEY (project_id)
@@ -19,9 +19,11 @@ create table project (
 
 create table vision (
     vision_id int(10) unsigned NOT NULL auto_increment,
+    project_id int(10) unsigned NOT NULL ,
     parent_vision_id int(10) unsigned NOT NULL default 0,
     vision_name varchar(255) NOT NULL default '',
     description text NOT NULL,
+    created_by int(10) unsigned NOT NULL ,
     created_at datetime NOT NULL default '0000-00-00 00:00:00',
     updated_at timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
     PRIMARY KEY (vision_id)

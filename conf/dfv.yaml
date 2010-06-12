@@ -43,3 +43,13 @@ setting :
                 - String#length :
                     min : 1
                     max : 20
+        vision_name :
+            rule :
+                - String#length :
+                    min : 1
+                    max : 20
+        description :
+            rule :
+                - String#length :
+                    min : 1
+                    max : 500
